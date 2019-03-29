@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, NavLink, Route} from 'react-router-dom';
+import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 import './App.css';
  
 const Home = () => <h1>Strona startowa</h1>
 const News = () => <h1>Aktualności</h1>
 const Contact = () => <h1>kontakt do nas</h1>
-
+const ErrorPage = () => <h1>Strona nie istnienie</h1>
 
 class App extends Component {
 	render() {
@@ -24,9 +24,12 @@ class App extends Component {
 				</ul>	 
 				</nav>
 				<section>
+				<Switch>
 				<Route path="/" exact component={Home}/>
 				<Route path="/news" exact component={News}/>
 				<Route path="/contact" exact component={Contact}/>
+				<Route component={ErrorPage}/>
+				</Switch>	
 				</section>
 			</header>
 			</div>
